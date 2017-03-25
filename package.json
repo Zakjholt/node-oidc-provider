@@ -9,7 +9,7 @@
     "got": "^6.1.1",
     "http-errors": "^1.4.0",
     "kcors": "^2.2.1",
-    "koa": "^2.0.1",
+    "koa": "^2.1.0",
     "koa-compose": "^3.2.1",
     "koa-router": "^7.0.1",
     "lodash": "^4.5.0",
@@ -22,20 +22,13 @@
   },
   "description": "OpenID Provider (OP) implementation for Node.js OpenID Connect servers.",
   "devDependencies": {
-    "chai": "^3.5.0",
     "eslint": "^3.0.0",
     "eslint-config-airbnb-base": "^11.0.0",
     "eslint-plugin-import": "^2.0.1",
-    "istanbul": "next",
+    "jest": "^19.0.2",
     "koa-body": "^2.0.0",
     "koa-ejs": "^4.0.0",
-    "koa-mount": "^2.0.0",
-    "koa-rewrite": "^2.1.0",
-    "mocha": "^3.0.0",
-    "moment": "^2.14.1",
-    "nock": "^9.0.2",
-    "sinon": "^1.17.3",
-    "supertest": "^3.0.0"
+    "node-mocks-http": "^1.6.1"
   },
   "main": "lib/index.js",
   "name": "oidc-provider",
@@ -65,17 +58,32 @@
     "koa"
   ],
   "scripts": {
-    "coverage": "make coverage",
-    "test": "make test",
+    "coverage": "jest --coverage",
+    "test": "jest",
     "lint": "eslint lib example test",
-    "lint-fix": "eslint lib example test --fix",
     "heroku-postbuild": "npm install mongodb"
   },
-  "version": "2.0.0-alpha.1.14.0",
+  "version": "2.0.0-beta.1",
   "files": [
     "lib"
   ],
   "publishConfig": {
     "tag": "next"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "lib/**"
+    ],
+    "coverageReporters": [
+      "lcov"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
   }
 }

@@ -1,17 +1,9 @@
 {
   "env": {
-    "mocha": true
-  },
-  "globals": {
-    "i": true,
-    "instance": true
+    "jest": true
   },
   "rules": {
-    "comma-dangle": "off",
-    "arrow-body-style": "off",
-    "func-names": "off",
-    "max-len": "off",
-    "no-unused-expressions": "off",
-    "prefer-arrow-callback": "off"
+    "no-underscore-dangle": [ "error", { "allow": [ "_headerNames" ] } ],
+    "import/no-extraneous-dependencies": [ "error", { "devDependencies": [ "**" ] } ],
   }
 }
